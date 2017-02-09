@@ -1,0 +1,22 @@
+{
+  "name": "practice2",
+  "version": "0.0.1",
+  "description": "Training course 3rd",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DuyLeNgoc/reactjs.git"
+  },
+  "keywords": [
+    "practice2"
+  ],
+  "author": "Duy Le Ngoc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DuyLeNgoc/reactjs/issues"
+  },
+  "homepage": "https://github.com/DuyLeNgoc/reactjs#readme"
+}
