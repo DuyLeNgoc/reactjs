@@ -33,8 +33,12 @@ class Create extends React.Component {
 	}
 
 	handleCancelTask() {
+    var r = confirm("Are you want to leave?");
+    if (r == true) {
+        this.props.router.goBack();
+    }
     // this.setState({isShowDialog: true});
-		this.props.router.goBack();
+		// this.props.router.goBack();
 	}
 
 	render() {
