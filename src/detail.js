@@ -12,17 +12,8 @@ var styles = {
 
 class Detail extends React.Component {
   render() {
-    return 
-    (
-      <div>
-        <span style={styles.name}>
-        {this.props.task.name}
-        </span>;
-        <span style={styles.des}>
-        {this.props.task.description}
-        </span>;
-      </div>
-    );
+    console.log(this.props);
+    return null;
   }
 }
 
