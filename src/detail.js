@@ -1,5 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
+import LISTITEMS from "./taskManager";
 
 var styles = {
   name: {
@@ -11,9 +12,18 @@ var styles = {
 }
 
 class Detail extends React.Component {
+
   render() {
-    console.log(this.props);
-    return null;
+    const { taskID } = this.props.routeParams;
+    let task = LISTITEMS.find(x => x.taskID == taskID); // 130
+
+    return (
+      <div>
+        <span>Task Name: {task.name}</span>
+        <br />
+        <span>Task Description: {task.description}</span>
+      </div>
+    );
   }
 }
 

@@ -14,7 +14,7 @@ ReactDOM.render((
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path="task/create" name="create" component={Create}></Route>
-      <Route path="task/detail(/:task_id)" name="detail" component={Detail}></Route>
+      <Route path="task/detail/:taskID" name="detail" component={Detail}></Route>
     </Route>
   </Router>
 ), app)

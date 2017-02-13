@@ -1,5 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
+import { Link } from "react-router";
 
 var styles = {
   name: {
@@ -8,28 +9,16 @@ var styles = {
 }
 
 class TaskItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleShowDetailTask = this.handleShowDetailTask.bind(this);
-  }
-
   render() {
+    var taskID = '/task/detail/' + this.props.task.taskID;
     return (
       <tr>
         <td>
-        <button style={styles.name} onClick={this.handleShowDetailTask}>
-        {this.props.task.name}
-        </button>
+          <Link to={taskID}>{this.props.task.name}</Link>
         </td>
       </tr>
     );
   }
-
-  handleShowDetailTask() {
-    //process navigate to create task
-    this.props.router.push('/task/detail/' + this.props.task.TASK_ID);
-  }
 }
-
 
 export default TaskItem;

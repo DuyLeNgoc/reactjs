@@ -52,8 +52,4 @@ class Create extends React.Component {
 	}
 }
 
-Create.propTypes = {
-	router: React.PropTypes.element
-};
-
 export default Create;

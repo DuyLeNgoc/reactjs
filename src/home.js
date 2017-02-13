@@ -2,7 +2,6 @@ import React from 'react';
 import {render} from 'react-dom';
 import TaskItem from "./TaskItem";
 import LISTITEMS from "./taskManager";
-import { Link } from "react-router";
 
 var styles = {
   table: {
