@@ -10,11 +10,10 @@ var styles = {
 
 class TaskItem extends React.Component {
   render() {
-    var taskID = '/task/detail/' + this.props.task.taskID;
     return (
       <tr>
         <td>
-          <Link to={taskID}>{this.props.task.name}</Link>
+          <li><Link style={styles.name} to={`/task/detail/${this.props.task.taskID}`}>{this.props.task.name}</Link></li>
         </td>
       </tr>
     );

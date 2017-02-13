@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ConfirmDialog from './confirmDialog';
 import { addTask } from './taskManager';
 
 class Create extends React.Component {
@@ -8,6 +8,7 @@ class Create extends React.Component {
 		super();
 
     this.state = {
+      isShowDialog: false,
       name: '',
       description: ''
     };
@@ -32,22 +33,26 @@ class Create extends React.Component {
 	}
 
 	handleCancelTask() {
+    // this.setState({isShowDialog: true});
 		this.props.router.goBack();
 	}
 
 	render() {
 		return (
-			<div>
-        <span>Task Name: </span>
-        <input value={this.state.name} onChange={this.handleChangeName} />
-        <br />
-        <span>Task Description: </span>
-        <input value={this.state.description} onChange={this.handleChangeDescription} />
-        <br />
-        <br />
-				<button onClick={this.handlAddTask} name='Add'>Add</button>
-        <button onClick={this.handleCancelTask} name='Cancel'>Cancel</button>
-			</div>
+      <div>
+      { this.state.isShowDialog ? <ConfirmDialog /> :
+        <div>
+          <span>Task Name: </span>
+          <input value={this.state.name} onChange={this.handleChangeName} />
+          <br />
+          <span>Task Description: </span>
+          <input value={this.state.description} onChange={this.handleChangeDescription} />
+          <br />
+          <br />
+          <button onClick={this.handlAddTask} name='Add'>Add</button>
+          <button onClick={this.handleCancelTask} name='Cancel'>Cancel</button>
+        </div>}
+      </div>
 		);
 	}
 }

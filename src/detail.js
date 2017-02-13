@@ -19,9 +19,9 @@ class Detail extends React.Component {
 
     return (
       <div>
-        <span>Task Name: {task.name}</span>
+        <span style={styles.name}>Task Name: {task.name}</span>
         <br />
-        <span>Task Description: {task.description}</span>
+        <span style={styles.des}>Task Description: {task.description}</span>
       </div>
     );
   }
