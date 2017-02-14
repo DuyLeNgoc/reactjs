@@ -25,9 +25,11 @@ class Home extends React.Component {
       <div>
         <button onClick={this.handleCreateTask}>Create Task</button>
         <br />
+        <br />
         <span>
-          List Task
+          List of Tasks
         </span>
+        <br />
       {
         <table style={styles.table}>
           <tbody>{rows}</tbody>

@@ -2,6 +2,13 @@ import React from 'react';
 import ConfirmDialog from './confirmDialog';
 import { addTask } from './taskManager';
 
+var styles = {
+  container: {
+    textAlign: "center",
+    // backgroundColor: "#ffde00",
+  }
+}
+
 class Create extends React.Component {
 
 	constructor() {
@@ -33,29 +40,26 @@ class Create extends React.Component {
 	}
 
 	handleCancelTask() {
-    var r = confirm("Are you want to leave?");
-    if (r == true) {
-        this.props.router.goBack();
-    }
-    // this.setState({isShowDialog: true});
-		// this.props.router.goBack();
+		this.props.router.goBack();
 	}
 
 	render() {
 		return (
-      <div>
-      { this.state.isShowDialog ? <ConfirmDialog /> :
-        <div>
-          <span>Task Name: </span>
-          <input value={this.state.name} onChange={this.handleChangeName} />
-          <br />
-          <span>Task Description: </span>
-          <input value={this.state.description} onChange={this.handleChangeDescription} />
-          <br />
-          <br />
-          <button onClick={this.handlAddTask} name='Add'>Add</button>
-          <button onClick={this.handleCancelTask} name='Cancel'>Cancel</button>
-        </div>}
+      <div style={styles.container}>
+        <br/>
+        <h1>Create New Task</h1>
+        <span>Task Name: </span>
+        <br />
+        <input value={this.state.name} onChange={this.handleChangeName} />
+        <br />
+        <br />
+        <span>Task Description: </span>
+        <br />
+        <input value={this.state.description} onChange={this.handleChangeDescription} />
+        <br />
+        <br />
+        <button onClick={this.handlAddTask} name='Add'> Add </button>
+        <ConfirmDialog confirmAction={this.handleCancelTask} />
       </div>
 		);
 	}
