@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 /*
  * Default webpack configuration for development
@@ -9,6 +10,11 @@ var config = {
   output: {
     path: __dirname + "/public",
     filename: "bundle.js"
+  },
+  resolve: {
+    root: [
+    path.resolve('./src')
+    ]
   },
   module: {
 		// preLoaders: [

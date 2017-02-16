@@ -1,6 +1,6 @@
 import React from 'react';
-import ConfirmDialog from './confirmDialog';
-import { addTask } from './taskManager';
+import ConfirmDialog from '../components/confirmDialog';
+import { addTask } from '../taskManager';
 
 var styles = {
   container: {

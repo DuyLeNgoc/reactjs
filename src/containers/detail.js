@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import LISTITEMS from "./taskManager";
+import LISTITEMS from "../taskManager";
 
 var styles = {
   name: {

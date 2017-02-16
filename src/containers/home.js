@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
-import TaskItem from "./TaskItem";
-import LISTITEMS from "./taskManager";
+import TaskItem from "components/taskItem";
+import LISTITEMS from "taskManager";
 
 var styles = {
   table: {
