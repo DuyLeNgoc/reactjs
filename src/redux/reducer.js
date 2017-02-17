@@ -5,6 +5,8 @@
 import {taskListReducer} from "./home";
 import {combineReducers} from "redux";
 
+import { reducer as formReducer } from 'redux-form'
+
 const RESET_ERROR_MESSAGE = 'Reset Error Message';
 /**
  * ## CombineReducers
@@ -22,8 +24,14 @@ function errorMessage(state = null, action) {
   return state;
 }
 
-const rootReducer = combineReducers({
-  errorMessage,
-  taskListReducer
-});
+// const rootReducer = combineReducers({
+//   errorMessage,
+//   taskListReducer
+// });
+
+const reducers = {
+  taskListReducer,
+  form: formReducer     // <---- Mounted at 'form'
+}
+const rootReducer = combineReducers(reducers)
 export default rootReducer;

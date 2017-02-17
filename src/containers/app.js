@@ -1,9 +1,10 @@
 import React from 'react'
+import AppBar from 'material-ui/AppBar';
 import Home from "./home";
 
 var styles = {
   container: {
-    backgroundColor: "#ffde00",
+    backgroundColor: "white",
   }
 }
 
@@ -11,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
     <div style={styles.container}>
-    <h1>Practice 2</h1>
+    <AppBar title="Practice ReactJS" showMenuIconButton={false} />
     <br />
     {this.props.children || <Home />}
     </div>);
