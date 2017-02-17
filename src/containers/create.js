@@ -17,13 +17,15 @@ class Create extends React.Component {
     this.state = {
       isShowDialog: false,
       name: '',
-      description: ''
+      description: '',
+      effort: 0
     };
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeDescription = this.handleChangeDescription.bind(this);
 		this.handlAddTask = this.handlAddTask.bind(this);
 		this.handleCancelTask = this.handleCancelTask.bind(this);
+    this.handleChangeEffort = this.handleChangeEffort.bind(this);
 	}
 
   handleChangeName(event) {
@@ -32,6 +34,10 @@ class Create extends React.Component {
 
   handleChangeDescription(event) {
     this.setState({description: event.target.value});
+  }
+
+  handleChangeEffort(event) {
+    this.setState({effort: event.target.value});
   }
 
 	handlAddTask() {
@@ -56,6 +62,11 @@ class Create extends React.Component {
         <span>Task Description: </span>
         <br />
         <input value={this.state.description} onChange={this.handleChangeDescription} />
+        <br />
+        <br />
+        <span>Task Effort: </span>
+        <br />
+        <input value={this.state.effort} onChange={this.handleChangeEffort} />
         <br />
         <br />
         <button onClick={this.handlAddTask} name='Add'> Add </button>

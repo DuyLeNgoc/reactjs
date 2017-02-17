@@ -62,15 +62,22 @@ export function taskListReducer(state = initialState, action) {
 // 4. Create Store: You'll only have a single store in a a Redux application.
 //   When you want to split your data handling logic. You'll use reducer Composition instead of many stores
 //   4.1: let store = createStore(reducer, initial state)
+// let request = new Request('http://demo9411062.mockable.io/tasks');
+//     return fetch(request);
+
 export function getTaskList() {
-  console.log('### call api get getTaskList');
   return dispatch => {
     dispatch(taskListRequest());
-    return TaskService.getTaskList.then(response => {
-        console.log(response.json());
-        dispatch(taskListRequestSuccess(response.json()));
-    }, error => {
-      dispatch(taskListRequestFailed(error));
+    return TaskService.getTaskList()
+    .then(response => {
+      return response.json();
+    })
+    .then(jsonTask => {
+        dispatch(taskListRequestSuccess(jsonTask));
+    })
+    .catch(error => {
+      console.log('There has been a problem with your fetch operation: ' + error.message);
+      dispatch(taskListRequestFailed(error))
     });
   };
 }

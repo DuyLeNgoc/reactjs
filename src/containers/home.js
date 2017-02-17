@@ -21,7 +21,14 @@ export class Home extends React.Component {
 
   render() {
     var rows = [];
+    let totalEffort = 0;
+    // const items = this.props.dataSource;
+    // if(items.length > 0) {
+    //   totalEffort = items.reduce((task1, task2) => { const e1 = parseInt(task1.effort); const e2 = parseInt(task2.effort); return e1 + e2; });
+    // }
+    // console.log(totalEffort);
     this.props.dataSource.forEach((task, id) => {
+      totalEffort += task.effort;
       rows.push(<TaskItem task={task} key={id} {...this.props} />);
     });
     return (
@@ -30,7 +37,7 @@ export class Home extends React.Component {
         <br />
         <br />
         <span>
-          List of Tasks
+          sum of effort: {totalEffort}
         </span>
         <br />
       {
