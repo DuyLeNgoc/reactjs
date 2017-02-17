@@ -1,8 +1,5 @@
-import { createStore } from 'redux';
-import Home from "containers/home";
 import TaskService from 'network/taskService'
 
-let store = createStore(Home)
 // ===============Guide===================
 // * Step to integrate Redux library to your application
 // 1. Define Action Types in application
@@ -69,8 +66,7 @@ export function getTaskList() {
   console.log('### call api get getTaskList');
   return dispatch => {
     dispatch(taskListRequest());
-    return TaskService.getTaskList
-    .then(response => {
+    return TaskService.getTaskList.then(response => {
         console.log(response.json());
         dispatch(taskListRequestSuccess(response.json()));
     }, error => {

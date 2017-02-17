@@ -1,18 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from 'redux';
+
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
 import { Provider } from "react-redux";
+
 import { Router, Route, IndexRoute, browserHistory } from "react-router";
 
 import Create from "containers/create";
 import Detail from "containers/detail";
 import Home from "containers/home";
 import App from "containers/app";
-// import reducer from 'redux/reducer';
-import {taskListReducer} from "redux/home";
+import reducer from 'redux/reducer';
 
-const app = document.getElementById('root');
-let store = createStore(taskListReducer);
+const logger = createLogger();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, /* preloadedState, */ composeEnhancers(
+  applyMiddleware(thunk, logger)
+));
+
+// let store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render((
   <Provider store={store}>
@@ -24,4 +32,4 @@ ReactDOM.render((
       </Route>
     </Router>
   </Provider>
-), app)
+), document.getElementById('root'))

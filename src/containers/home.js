@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {render} from 'react-dom';
+import { connect } from "react-redux";
+
 import TaskItem from "components/taskItem";
 import LISTITEMS from "taskManager";
 import {getTaskList} from 'redux/home';
@@ -16,7 +18,7 @@ export class Home extends React.Component {
     super(props);
     this.handleCreateTask = this.handleCreateTask.bind(this);
   }
-  
+
   render() {
     var rows = [];
     this.props.dataSource.forEach((task, id) => {
@@ -48,7 +50,7 @@ export class Home extends React.Component {
   componentDidMount() {
     this.props.getTaskList();
   }
-  
+
 }
 
 Home.propTypes = {
