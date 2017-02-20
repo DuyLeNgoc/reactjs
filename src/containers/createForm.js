@@ -1,8 +1,5 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import Dialog from 'material-ui/Dialog';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
 
 class CreateForm extends React.Component {
 
@@ -10,17 +7,17 @@ class CreateForm extends React.Component {
     const { handleSubmit, reset} = this.props;
 
     return (
-        <form onSubmit={handleSubmit(values => handleSubmit(values))}>
+        <form onSubmit={handleSubmit}>
           <div>
             <label>Task Name</label>
             <div>
-              <Field name="taskName" component="input" type="text" placeholder="Name"/>
+              <Field name="name" component="input" type="text" placeholder="Name"/>
             </div>
           </div>
           <div>
             <label>Task Description</label>
             <div>
-              <Field name="taskDescription" component="input" type="text" placeholder="Description"/>
+              <Field name="description" component="input" type="text" placeholder="Description"/>
             </div>
           </div>
           <div>

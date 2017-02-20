@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateForm from "containers/createForm";
-import { addTask } from '../taskManager';
+import { addTask } from 'taskManager';
 
 var styles = {
   container: {
@@ -16,24 +16,13 @@ class Create extends React.Component {
     this.state = {
       open: false
     };
-    this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-  handleOpen() {
-    this.setState({open: true});
-  }
-  
-  handleClose() {
-    this.setState({open: false});
-  }
-  
   handleSubmit(values) {
     // Do something with the form values
-    console.log("aaaaaaaaa");
-    console.log(values);
-    console.log("abbbbbbb");
+    addTask(values.name, values.description, parseInt(values.effort));
+		this.props.router.goBack();
   }
 
 	render() {
