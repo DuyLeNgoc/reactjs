@@ -1,5 +1,15 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import TextField from 'material-ui/TextField';
+
+const renderTextField = ({ input, label, meta: { touched, error }, ...custom }) => (
+    <TextField hintText={label}
+      floatingLabelText={label}
+      errorText={touched && error}
+      {...input}
+      {...custom}
+    />
+  )
 
 class CreateForm extends React.Component {
 
@@ -11,19 +21,19 @@ class CreateForm extends React.Component {
           <div>
             <label>Task Name</label>
             <div>
-              <Field name="name" component="input" type="text" placeholder="Name"/>
+              <Field name="name" component={renderTextField} type="text" placeholder="Name"/>
             </div>
           </div>
           <div>
             <label>Task Description</label>
             <div>
-              <Field name="description" component="input" type="text" placeholder="Description"/>
+              <Field name="description" component={renderTextField} type="text" placeholder="Description"/>
             </div>
           </div>
           <div>
             <label>Effort</label>
             <div>
-              <Field name="effort" component="input" type="text" placeholder="Effort"/>
+              <Field name="effort" component={renderTextField} type="text" placeholder="Effort"/>
             </div>
           </div>
           <div>
