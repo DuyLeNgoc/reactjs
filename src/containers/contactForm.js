@@ -6,7 +6,7 @@ class ContactForm extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(handleSubmit)}>
         <div>
           <label htmlFor="firstName">First Name</label>
           <Field name="firstName" component="input" type="text"/>

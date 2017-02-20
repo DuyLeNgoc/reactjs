@@ -5,30 +5,12 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
 class CreateForm extends React.Component {
-  // handleSubmit(values) {
-  //   // Do something with the form values
-  //   this.props.handleSubmit(values);
-  // }
 
   render() {
-    console.log(this.props);
-      // const { handleSubmit, handleCancel, handleClose } = this.props;
-      /*const actions = [
-        <FlatButton
-          label="Cancel"
-          primary={true}
-          onTouchTap={handleClose}
-        />,
-        <FlatButton
-          label="OK"
-          primary={true}
-          keyboardFocused={true}
-          onTouchTap={handleClose}
-        />,
-      ];*/
+    const { handleSubmit, reset} = this.props;
+
     return (
-      // <div>
-        <form onSubmit={this.props.handleSubmit}>
+        <form onSubmit={handleSubmit(values => handleSubmit(values))}>
           <div>
             <label>Task Name</label>
             <div>
@@ -49,24 +31,13 @@ class CreateForm extends React.Component {
           </div>
           <div>
             <button type="submit">Submit</button>
-            {/*<RaisedButton label="Submit" onTouchTap={handleSubmit} />*/}
-            {/*<RaisedButton label="Cancel" onTouchTap={handleCancel} />*/}
+            <button type="button" onClick={reset}>Clear</button>
           </div>
         </form>
-        /*{<Dialog
-            title="Confirmation"
-            actions={actions}
-            modal={false}
-            open={this.props.open}
-            onRequestClose={handleClose}
-          >
-          "Are you sure to leave?"
-          </Dialog>}*/
-      // </div>
     );
   }
 }
 
 export default reduxForm({
-  form: 'createForm'  // a unique identifier for this form
+  form: 'CreateForm'  // a unique identifier for this form
 })(CreateForm)

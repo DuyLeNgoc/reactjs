@@ -1,6 +1,5 @@
 import React from 'react';
 import CreateForm from "containers/createForm";
-import ContactForm from "containers/contactForm";
 import { addTask } from '../taskManager';
 
 var styles = {
@@ -11,8 +10,8 @@ var styles = {
 
 class Create extends React.Component {
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
     this.state = {
       open: false
@@ -32,14 +31,15 @@ class Create extends React.Component {
   
   handleSubmit(values) {
     // Do something with the form values
-    console.log("###############################################################");
+    console.log("aaaaaaaaa");
     console.log(values);
     console.log("abbbbbbb");
   }
 
 	render() {
 		return (
-      <CreateForm onSubmit={this.handleSubmit} />
+      <CreateForm 
+      onSubmit={this.handleSubmit} />
 		);
 	}
 }
