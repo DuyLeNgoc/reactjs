@@ -5,12 +5,15 @@ const LISTITEMS = [
     ];
 var taskID = 0;
 
-export function addTask(text, description) {
+export function addTask(text, description, effort) {
 	taskID += 1;
+  let createdDate = new Date();
 	LISTITEMS.push({
-		id: taskID,
+		taskID: taskID,
 		name: text,
-    description: description
+    description: description,
+    created: createdDate.toString(),
+    effort: effort
 	});
 }
 

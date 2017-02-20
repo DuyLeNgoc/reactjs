@@ -41,7 +41,7 @@ class Create extends React.Component {
   }
 
 	handlAddTask() {
-		addTask(this.state.name, this.state.description);
+		addTask(this.state.name, this.state.description, parseInt(this.state.effort));
 		this.props.router.goBack();
 	}
 

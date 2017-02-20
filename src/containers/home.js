@@ -3,7 +3,6 @@ import {render} from 'react-dom';
 import { connect } from "react-redux";
 
 import TaskItem from "components/taskItem";
-import LISTITEMS from "taskManager";
 import {getTaskList} from 'redux/home';
 
 var styles = {

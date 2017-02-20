@@ -1,4 +1,5 @@
-import TaskService from 'network/taskService'
+import LISTITEMS from "taskManager";
+import TaskService from 'network/taskService';
 
 // ===============Guide===================
 // * Step to integrate Redux library to your application
@@ -48,7 +49,7 @@ export function taskListReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: '',
-        dataSource: action.payload.tasks
+        dataSource: action.payload
       };
     case FAILED:
       return {
@@ -68,16 +69,17 @@ export function taskListReducer(state = initialState, action) {
 export function getTaskList() {
   return dispatch => {
     dispatch(taskListRequest());
-    return TaskService.getTaskList()
-    .then(response => {
-      return response.json();
-    })
-    .then(jsonTask => {
-        dispatch(taskListRequestSuccess(jsonTask));
-    })
-    .catch(error => {
-      console.log('There has been a problem with your fetch operation: ' + error.message);
-      dispatch(taskListRequestFailed(error))
-    });
+    return dispatch(taskListRequestSuccess(LISTITEMS));
+    // return TaskService.getTaskList()
+    // .then(response => {
+    //   return response.json();
+    // })
+    // .then(jsonTask => {
+    //     dispatch(taskListRequestSuccess(jsonTask));
+    // })
+    // .catch(error => {
+    //   console.log('There has been a problem with your fetch operation: ' + error.message);
+    //   dispatch(taskListRequestFailed(error))
+    // });
   };
 }
